@@ -24,7 +24,7 @@ $T(\log_{5}n)  \leq c * O(log_{2}n)$
 $if\ c = log_{5}2\$
 
 $T(\log_{5}n) \leq O(log_{5}2$ * $\log_{2}n)$ 
-
+//get help from TA
 $\log_{5}2$ * $\log_{2}n$ = $\frac{lg_{2}}{lg_{5}} * \frac{lg_{n}}{lg_{2}}$, then we could cancel $\lg_{2}$, left $\frac{lg_{n}}{lg_{5}}$
 
 $\frac{lg_{n}}{lg_{5}}$ = $\log_{5}n$
