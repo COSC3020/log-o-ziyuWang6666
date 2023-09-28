@@ -15,21 +15,26 @@ $T(n) \in O(f(n)) \iff \exists c, n_0: T(n) \leq c \cdot f(n) \forall n \geq n_0
 
 ## Answer
 
-I am a little bit confused about how to write in big O format. The following are just mathematical calculations with what I thought big O.
+$T(\log_{5}n)  \leq c * O(log_{2}n)$ or $T(\log_{2}n)  \leq c * O(log_{5}n)$
 
-$T(\log_{5}n)  \leq c * O(log_{2}n)$ ---1st equation
+By the formal definition of big O: c = $\log_{b}a$ and f(n)= $\log_{a}n$, c = $\log_{a}b$ and f(n) = $\log_{b}n$
 
-$\frac{T(\log_{5}n)}{O(log_{2}n)} \leq c$
+To get T(n):
 
-$When \frac{T(\log_{5}n)}{O(log_{2}n)} = c$
+T(n) = c * f(n) = $\log_{b}a$ * $\log_{a}n$ = $\frac{lg_{a}}{lg_{b}} * \frac{lg_{n}}{lg_{a}}$, then we could cancel $\lg_{a}$, left $\frac{lg_{n}}{lg_{b}}$, then $\frac{lg_{n}}{lg_{b}}$ = $\log_{b}n$
 
-$c = \frac{lg_{n}}{lg_{5}} * \frac{lg_{2}}{lg_{n}} = \frac{lg_{2}}{lg_{5}} = \log_{5}2$
-
-By first equation: $T(\log_{5}n) \leq log_{5}2$ * $O(\log_{2}n)$ 
-
-$\log_{5}2$ * $\log_{2}n$ = $\frac{lg_{2}}{lg_{5}} * \frac{lg_{n}}{lg_{2}}$, then we could cancel $\lg_{2}$, left $\frac{lg_{n}}{lg_{5}}$, then $\frac{lg_{n}}{lg_{5}}$ = $\log_{5}n$
-
-So, $T(\log_{5}n)  \leq  O(log_{5}n)$ , $O(\log_{5}n) = O(log_{5}n)$, $O(\log_{2} n)$ is the same as $O(\log_{5} n)$.
+T(n) = c * f(n) = $\log_{a}b$ * $\log_{b}n$ = $\frac{lg_{b}}{lg_{a}} * \frac{lg_{n}}{lg_{b}}$, then we could cancel $\lg_{b}$, left $\frac{lg_{n}}{lg_{a}}$, then $\frac{lg_{n}}{lg_{a}}$ = $\log_{a}n$
 
 
-//get help from Dhruv to write special big O format
+By the formal definition of big O: c = $\log_{a}b$ and T(n)= $\log_{a}n$, c = $\log_{b}a$ and T(n) = $\log_{b}n$
+
+To get f(n):
+
+f(n) = $\frac{1}{c}$ * T(n) = $\frac{1}{\log_{a}b}$ * $\log_{a}n$ = $\frac{lg_{a}}{lg_{b}} * \frac{lg_{n}}{lg_{a}}$, then we could cancel $\lg_{a}$, left $\frac{lg_{n}}{lg_{b}}$ = $\log_{b}n$
+
+f(n) = $\frac{1}{c}$ * T(n) = $\frac{1}{\log_{b}a}$ * $\log_{b}n$ = $\frac{lg_{b}}{lg_{a}} * \frac{lg_{n}}{lg_{b}}$, then we could cancel $\lg_{b}$, left $\frac{lg_{n}}{lg_{b}}$ = $\log_{a}n$
+
+So, by bidirectional proof T(n) and f(n), $O(\log_{2} n)$ is the same as $O(\log_{5} n)$.
+
+
+//get help from Dhruv to write special big O format, and help from TA
