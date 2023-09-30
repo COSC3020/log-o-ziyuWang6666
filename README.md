@@ -15,26 +15,49 @@ $T(n) \in O(f(n)) \iff \exists c, n_0: T(n) \leq c \cdot f(n) \forall n \geq n_0
 
 ## Answer
 
-$T(\log_{5}n)  \leq c * O(log_{2}n)$ or $T(\log_{2}n)  \leq c * O(log_{5}n)$
+$O(log_{2}n) = O(log_{5}n)$
 
-By the formal definition of big O: c = $\log_{b}a$ and f(n)= $\log_{a}n$, c = $\log_{a}b$ and f(n) = $\log_{b}n$
+===============================The first part===============================================
 
-To get T(n):
+$T(n) \in O(f(n)) \iff \exists c, n_0: T(n) \leq c \cdot f(n) \forall n \geq n_0$
 
-T(n) = c * f(n) = $\log_{b}a$ * $\log_{a}n$ = $\frac{lg_{a}}{lg_{b}} * \frac{lg_{n}}{lg_{a}}$, then we could cancel $\lg_{a}$, left $\frac{lg_{n}}{lg_{b}}$, then $\frac{lg_{n}}{lg_{b}}$ = $\log_{b}n$
+$T(n) \in O(log_{2}n) \iff \exists c, n_0: T(n) \leq c \cdot (log_{2}n) \forall n \geq n_0$
 
-T(n) = c * f(n) = $\log_{a}b$ * $\log_{b}n$ = $\frac{lg_{b}}{lg_{a}} * \frac{lg_{n}}{lg_{b}}$, then we could cancel $\lg_{b}$, left $\frac{lg_{n}}{lg_{a}}$, then $\frac{lg_{n}}{lg_{a}}$ = $\log_{a}n$
+According to log base change rule: $\log_{b}a = \frac{log_{n}a}{log_{n}b}$, any base n. If n=5, $\log_{b}a = \frac{log_{5}a}{log_{5}b} = \frac{1}{log_{5}b} * \log_{5}a$
+
+$T(n) \in O(log_{2}n) \iff \exists c, n_0: T(n) \leq c \cdot (\frac{1}{log_{5}2} * log_{5}n) \forall n \geq n_0$
+
+$c*\ (\frac{1}{log_{5}2})$, c is constant, c times a constant is still a constant. We set constant d = $c*\ (\frac{1}{log_{5}2})$
+
+$T(n) \in O(log_{2}n) \iff \exists c, n_0: T(n) \leq （d * log_{5}n) \forall n \geq n_0$
+
+$T(n) \in O(log_{2}n) \iff \exists c, n_0: T(n) \in O(log_{5}n) \forall n \geq n_0$
+
+$\forall T(n) \in O(log_{2}n) \implies T(n) \in O(log_{5}n) $
 
 
-By the formal definition of big O: c = $\log_{a}b$ and T(n)= $\log_{a}n$, c = $\log_{b}a$ and T(n) = $\log_{b}n$
+===============================The second part===============================================
 
-To get f(n):
 
-f(n) = $\frac{1}{c}$ * T(n) = $\frac{1}{\log_{a}b}$ * $\log_{a}n$ = $\frac{lg_{a}}{lg_{b}} * \frac{lg_{n}}{lg_{a}}$, then we could cancel $\lg_{a}$, left $\frac{lg_{n}}{lg_{b}}$ = $\log_{b}n$
 
-f(n) = $\frac{1}{c}$ * T(n) = $\frac{1}{\log_{b}a}$ * $\log_{b}n$ = $\frac{lg_{b}}{lg_{a}} * \frac{lg_{n}}{lg_{b}}$, then we could cancel $\lg_{b}$, left $\frac{lg_{n}}{lg_{b}}$ = $\log_{a}n$
+$T(n) \in O(log_{5}n) \iff \exists c, n_0: T(n) \leq c \cdot (log_{5}n) \forall n \geq n_0$
+
+According to log base change rule: $\log_{b}a = \frac{log_{n}a}{log_{n}b}$, any base n. If n=2, $\log_{b}a = \frac{log_{2}a}{log_{2}b} = \frac{1}{log_{2}b} * \log_{2}a$
+
+$T(n) \in O(log_{5}n) \iff \exists c, n_0: T(n) \leq c \cdot (\frac{1}{log_{2}5} * log_{2}n) \forall n \geq n_0$
+
+$c*\ (\frac{1}{log_{2}5})$, c is constant, c times a constant is still a constant. We set constant d = $c*\ (\frac{1}{log_{2}5})$
+
+$T(n) \in O(log_{5}n) \iff \exists c, n_0: T(n) \leq （d * log_{2}n) \forall n \geq n_0$
+
+$T(n) \in O(log_{5}n) \iff \exists c, n_0: T(n) \in O(log_{2}n) \forall n \geq n_0$
+
+$\forall T(n) \in O(log_{5}n) \implies T(n) \in O(log_{2}n) $
+
+
+=================================Conclusion==========================================================
 
 So, by bidirectional proof T(n) and f(n), $O(\log_{2} n)$ is the same as $O(\log_{5} n)$.
 
 
-//get help from Dhruv to write special big O format, and help from TA
+//get help from the professor, TA, and help from Dhruv to write special big O formats
